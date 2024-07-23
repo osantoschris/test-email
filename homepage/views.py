@@ -14,7 +14,8 @@ def send_email_view(request):
         try:
 
             send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-            return redirect('/contact/')  # Redirecionar após envio
+            # return redirect('/contact/')  # Redirecionar após envio
+            return render(request, 'homepage/send_email_form.html')
         except Exception as e:
             return HttpResponse(f'Error: {e}', status=500)
 
